@@ -1,0 +1,139 @@
+
+.navBar{
+    height: 7.5%;
+    width: 100%;
+    background-color: #ffffff;
+}
+.logo{
+    height: 90%;
+    padding: .25%;
+}
+
+.navBarButton{
+    float: right;
+    height: 100%;
+    padding-left: 1vw; padding-right: 1vw;
+    font-size: 1vw;
+}
+.navBarButton:hover{
+    transition: 0.1s ease-in;
+    background-color: rgb(189, 189, 189);
+}
+.navBarButton:active{
+    transition: 0.05s ease-in;
+    background-color: grey;
+}
+
+.btn{
+    height: 5vh;
+    width: 100%;
+    margin-bottom: 1vh;
+    padding-left: 1vw;
+    font-size: 0.7vw;
+    background-color: rgb(241, 241, 241);
+}
+.btn:hover{
+    transition: 0.1s ease-in;
+    background-color: rgb(189, 189, 189);
+}
+.btn:active{
+    transition: 0.1s ease-in;
+    background-color: rgb(163, 163, 163);
+}
+
+.button-logo{
+    height: 1vw;
+    margin-bottom: -.25vw;
+    float:left;
+}
+
+.buttonLogo{
+    height: 1.5vw;
+    margin-bottom: -.25vw;
+}
+
+.control-panel{
+    background-color: rgb(241, 241, 241);
+    float: left;
+    width: 12.5vw;
+    height: 92.5vh;
+    font-size: 3vw;
+}
+.main-panel{
+    float: left;
+    width: 82vw;
+    
+    font-size: 1vw;
+}
+.sub-panel{
+    float: left;
+    width: 82vw;
+    height: 48vh;
+    font-size: 1vw;
+    margin-top: 3vw;
+    margin-left: -1vw;
+}
+.left{
+    float: left;
+}
+
+.user-area{
+    font-size: 1vw;
+    height: 5vw;
+    padding: 1vw;
+}
+
+.recent-deliveries{
+    background-color: rgb(241, 241, 241);
+    width: 50%;
+    height: 90%;
+    float: left;
+    padding: 1%;
+}
+
+.deliveries{
+    background-color: rgb(241, 241, 241);
+    width: 98%;
+    float: left;
+    padding: 1%;
+}
+.deliveryData{
+    background-color: rgb(248, 248, 248);
+    height: 5%;
+    width: 100%;
+    font-size: 1vw;
+}
+
+.delivery-block{
+    width: 100%;
+    height: 8%;
+    display:inline-block;
+    background-color: #ffffff;
+    margin-bottom: 0.25%;
+}
+
+.eb1, .eb2, .eb3, .eb4, .eb5, .eb6, .eb7{
+    float:left;
+    position: absolute;
+}
+.eb1{
+    margin-left: 2%;
+}
+.eb2{
+    margin-left: 13%;
+}
+.eb3{
+    margin-left: 22%;
+}
+.eb4{
+    margin-left: 30%;
+}
+.eb5{
+    margin-left: 45%;
+}
+.eb6{
+    margin-left: 65%;
+}
+.eb7{
+    margin-left: 90%;
+}

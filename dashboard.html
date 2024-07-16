@@ -1,0 +1,188 @@
+<header>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style2.css">
+    <script type="text/javascript" src="index.js"></script>
+</header>
+<body>
+    <div class="main-content">
+        <!--Naviagation bar-->
+        <div class="navBar">
+            <image class="logo" src="./images/trackle.png"></image>
+            <!--
+            <button class="navBarButton"><image class="buttonLogo" src="./images/logos/arrow.png"></image>&nbsp;Logout (user.name)</button>
+            <button class="navBarButton"><image class="buttonLogo" src="./images/logos/employee.png"></image>&nbsp;Employees</button>
+            <button class="navBarButton"><image class="buttonLogo" src="./images/logos/db.png"></image>&nbsp;Delivery Records</button>
+            <button class="navBarButton"><image class="buttonLogo" src="./images/logos/plus.png"></image>&nbsp;Create a Delivery</button>
+            <button class="navBarButton"><image class="buttonLogo" src="./images/logos/list.png"></image>&nbsp;Deliveries</button>
+            <button class="navBarButton"><image class="buttonLogo" src="./images/logos/home.png"></image>&nbsp;Dashboard</button>
+            -->
+        </div>
+        <!--Dashboard panel-->
+        <div class="content-wrapper dashboard">
+            <!--Control panel-->
+            <div class="control-panel" id="sideBar">
+                <div class="user-area" id="">
+                    <image src="./images/logos/users.png" style="width: 2.5vw; float:left;"></image>
+                    <div id="logoutButtonText">username</div>
+                    <br>
+                    <button class="btn" onclick="logout();"><image class="button-logo" src="./images/logos/arrow.png"></image> logout</button>
+                </div>
+                <button class="btn" onclick="dashboard('dashboard-panel');" id="dashboard-button"><image class="button-logo" src="./images/logos/home.png"></image>&nbsp;Dashboard</button>
+                <button class="btn" onclick="dashboard('deliveries-panel');" id="deliveries-button"><image class="button-logo" src="./images/logos/list.png"></image>&nbsp;Deliveries</button>
+                <button class="btn" onclick="dashboard('create-delivery-panel');" id="new-delivery-button"><image class="button-logo" src="./images/logos/plus.png"></image>&nbsp;Create a Delivery</button>
+                <button class="btn" onclick="dashboard('records-panel');" id="delivery-records-button"><image class="button-logo" src="./images/logos/db.png"></image>&nbsp;Delivery Records</button>
+                <button class="btn" onclick="dashboard('employees-panel');" id="employees-button"><image class="button-logo" src="./images/logos/employee.png"></image>&nbsp;Employees</button>
+                <button class="btn" onclick="dashboard('email-records-panel');" id="email-records-button"><image class="button-logo" src="./images/logos/mail.png"></image>&nbsp;Email Records</button>
+                <button class="btn" onclick="dashboard('app-log-panel');" id="app-log-button"><image class="button-logo" src="./images/logos/log.png"></image>&nbsp;App Log</button>
+
+            </div>
+            <!--Dashboard-->
+            <div class="card main-panel dashboard-panel" style="display:none;">
+                <div class="fnt-size1">Dashboard</div>
+                <div class="holder card2" style="width: 44%; float:left;">
+                    <div class="fnt-size2">Deliveries Today</div>
+                    <div class="fnt-size0">000</div>
+                    <div class="fnt-size1" style="float: right;">Date here</div>
+                </div>
+                <div class="holder card2" style="width: 44%; float:left;">
+                    <div class="fnt-size2">Deliveries Yesterday</div>
+                    <div class="fnt-size0">000</div>
+                    <div class="fnt-size1" style="float: right;">Date here</div>
+                </div>
+                <div class="holder card2" style="width: 94%; float:left;">
+                    <div class="fnt-size2">Deliveries</div>
+                    <div class="holder">
+                        <div class="fnt-size3">test</div>
+                        <div class="fnt-size3">test</div>
+                        <div class="fnt-size3">test</div>
+                        <div class="fnt-size3">test</div>
+                    </div>
+                </div>
+                <div class="holder" style="width: 50%; float:left;">
+                    <div class="fnt-size1">test</div>
+                </div>
+            </div>
+
+            <!--Deliveries panel-->
+            <div class="card main-panel deliveries-panel" id="print-deliveries">
+                <div class="holder" style="height: 10%;">
+                    <div class="fnt-size1" style="float:left;">Deliveries</div>
+                    <button class="btn" style="float:right; width: 10%;" onclick="printDiv('print-deliveries');">PRINT</button>
+                </div>
+                <!--headers for the table-->
+                <div class="holder" style="width: 98%; padding: 1%; position: relative;">
+                    <div class='delivery-block'>
+                        <h3 class='eb1'># OF BOXES</h3>
+                        <h3 class='eb2'>TYPE</h3>
+                        <h3 class='eb3'>P/U</h3>
+                        <h3 class='eb4'>COMPANY</h3>
+                        <h3 class='eb5'>NAME/ADDRESS</h3>
+                        <h3 class='eb6'>OTHERDATA</h3>
+                        <h3 class='eb7'>JOB #</h3></div>
+                </div>
+                <div class="deliveries" id="deliveriesListing" style="position:relative;">
+                    <div class='delivery-block'>
+                        <h5 class='eb1'># OF BOXES</h5>
+                        <h5 class='eb2'>TYPE</h5>
+                        <h5 class='eb3'>P/U</h5>
+                        <h5 class='eb4'>COMPANY</h5>
+                        <h5 class='eb5'>NAME/ADDRESS</h5>
+                        <h5 class='eb6'>OTHERDATA</h5>
+                        <h5 class='eb7'>JOB #</h5></div>
+                </div>
+            </div>
+
+            <!--Create a delivery-->
+            <div class="card main-panel create-delivery-panel">
+                <div class="fnt-size1">Add Delivery</div>
+                <!--<div class="deliveries">-->
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;"># OF BOXES</h3><br><br>
+                    <input type="text" id="numBoxes" style="width: 20%; margin-left: 10%;">
+                    <br>
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;">TYPE</h3><br><br>
+                    <input type="text" id="type" style="width: 20%; margin-left: 10%;">
+                    <br>
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;">P/U</h3><br><br>
+                    <input type="text" id="pU" style="width: 20%; margin-left: 10%;">
+                    <br>
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;">COMPANY</h3><br><br>
+                    <input type="text" id="company" style="width: 20%; margin-left: 10%;">
+                    <br>
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;">NAME/ADDRESS</h3><br><br>
+                    <input type="text" id="nameAddr" style="width: 20%; margin-left: 10%;">
+                    <br>
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;">OTHER DATA</h3><br><br>
+                    <input type="text" id="other" style="width: 20%; margin-left: 10%;">
+                    <br>
+                    <h3 style="float:left; width: 20%; margin-left: 5%; margin-bottom: -0.5%;">JOB #</h3><br><br>
+                    <input type="text" id="jobNum" style="width: 20%; margin-left: 10%;">
+                    <br><br><br><br>
+
+                    <button class="btn" style="" onclick="createDelivery();"><div class="fnt-size2">Create</div></button>
+                <!--</div>-->
+            </div>
+
+             <!--Delivery Records-->
+             <div class="card main-panel records-panel">
+                <div class="fnt-size1">Delivery Records</div>
+                <div class="deliveries">
+                </div>
+            </div>
+
+            <!--Employees-->
+            <div class="card main-panel employees-panel">
+                <div class="fnt-size1">Employees</div>
+                <div class="deliveries" id="employeeListing">
+                    <div class="deliveryData"> Delivery Number</div>
+                </div>
+                <!--<div class="card sub-panel">-->
+                    <div class="holder" style="width: 50%; float: left;">
+                        <div class="fnt-size1">Create User</div>
+                        <h3 style="float:left; width: 40%; margin-bottom: -0.25%;">Username</h3><br><br>
+                        <input type="text" id="addusername">
+                        <h3 style="float:left; width: 40%; margin-bottom: -0.25%;">Permissions #</h3><br><br>
+                        <input type="text" id="addpermissions">
+                        <h3 style="float:left; width: 40%; margin-bottom: -0.25%;">Other Data // Job Title</h3><br><br>
+                        <input type="text" id="addother">
+                        <br><br>
+                        <button class="btn" style="width: 80%;" onclick="createEmployee();"><h2>Create</h2></button>
+                    </div>
+                    <div class="spacer"></div>
+                    <div class="holder" style="width: 50%; float: right;">
+                        <div class="fnt-size1">Permissions</div>
+                        <h4>1 = Reader<span class="dot" style="background-color: grey;"></span></h4>
+                            <h6 style="color: grey; margin-top: -3%;">&nbsp;Can view deliveries for the day.</h6>
+                        <h4>2 = Contributor<span class="dot" style="background-color: #7aff82;"></span></h4>
+                            <h6 style="color: #3e8343; margin-top: -3%;">&nbsp;Can add/remove deliveries for the day.</h6>
+                        <h4>3 = Standard <span class="dot" style="background-color: #a8ff1c;"></span></h4>
+                            <h6 style="color: #56830e; margin-top: -3%;">&nbsp;Can view delivery records.</h6>
+                            <h6 style="color: #56830e; margin-top: -3%;">&nbsp;Can view email records.</h6>
+                        <h4>4 = Owner <span class="dot" style="background-color: #ffa41c;;"></span></h4>
+                            <h6 style="color: #ffa41c; margin-top: -3%;">&nbsp;Can edit delivery records.</h6>
+                            <h6 style="color: #ffa41c; margin-top: -3%;">&nbsp;Can edit email settings.</h6>
+                        <h4>5 = Administrator (not recommended) <span class="dot" style="background-color: #ff511c;"></span></h4>
+                            <h6 style="color: #ff511c; margin-top: -3%;">&nbsp;Can view app(trackle) logs.</h6>
+                            <h6 style="color: #ff511c; margin-top: -3%;">&nbsp;Can Add/Remove users.</h6>
+                            <h6 style="color: #ff511c; margin-top: -3%;">&nbsp;User cannot be deleted.</h6>
+                    <!--</div>-->
+                </div>
+            </div> 
+
+            <!--Email Records-->
+            <div class="card main-panel email-records-panel">
+                <div class="fnt-size1">Email Records</div>
+                <div class="deliveries">
+                    <div class="deliveryData"> Delivery Number</div>
+                </div>
+            </div>
+
+            <!--App Log-->
+            <div class="card main-panel app-log-panel">
+                <div class="fnt-size1">App Log</div>
+                <div class="deliveries">
+                    <div class="deliveryData"> Delivery Number</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
